@@ -10,18 +10,25 @@
         </div>
       </div>
     </div>
+    <form action="/photos" method="POST">
       <div class="toggle toggle__active">
-        <div class="width-container">
+        <div class="width-container width-container__top">
           <div class="toggle__content">
-              <input type="text" name="url" class="toggle__content__input" placeholder="Image URL">
-              <textarea name="caption" rows="4" cols="40" class="toggle__content__input">Image Caption</textarea>
-              <div class="toggle__content__buttons">
-                <div class="toggle__content__buttons__btn"><h4>cancel</h4></div>
-                <div class="toggle__content__buttons__btn toggle__content__buttons__btn__green"><i class="fa fa-picture-o" aria-hidden="true"></i><h4>add image</h4></div>
+                {{ csrfField }}
+                <input type="text" name="url" class="toggle__content__input" placeholder="Image URL">
+                <textarea name="caption" rows="4" cols="40" class="toggle__content__input">Image Caption</textarea>
+                <div class="toggle__content__buttons">
+                  <button type="clear" class="toggle__content__buttons__btn">
+                    <h4>cancel</h4>
+                  </button>
+                  <button type="submit" class="toggle__content__buttons__btn toggle__content__buttons__btn__green">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i><h4>add image</h4>
+                  </button>
               </div>
             </div>
           </div>
         </div>
+      </form>
   </div>
 
   <main class="app__main">
@@ -31,28 +38,13 @@
       <div class="width-container__blocks">
         <div class="block">
           <div class="block__photo">
-            <img src="http://placecera.com/500/400" alt="" class="block__photo__content">
+            <img src="{{url}}" alt="" class="block__photo__content">
           </div>
           <div class="block__caption">
-            <p>This is a fine gif of Michael Cera.</p>
+            <p>{{caption}}</p>
           </div>
         </div>
-        <div class="block">
-          <div class="block__photo">
-            <img src="http://placecera.com/gif/500/450" alt="" class="block__photo__content">
-          </div>
-          <div class="block__caption">
-            <p>This is a fine gif of Michael Cera.</p>
-          </div>
-        </div>
-        <div class="block">
-          <div class="block__photo">
-            <img src="http://placecera.com/gif/500/500" alt="" class="block__photo__content">
-          </div>
-          <div class="block__caption">
-            <p>This is a fine gif of Michael Cera.</p>
-          </div>
-        </div>
+
       </div>
 
       </div>
