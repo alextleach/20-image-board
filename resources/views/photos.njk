@@ -1,1 +1,63 @@
-<h1> WTF </h1>
+{% extends "master" %}
+{% block content %}
+<div class="app">
+
+  <div class="top-nav">
+    <div class="app--nav">
+      <div class="width-container">
+        <div class="app--nav__content">
+          <i class="fa fa-plus-circle circle-button" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+      <div class="toggle toggle__active">
+        <div class="width-container">
+          <div class="toggle__content">
+              <input type="text" name="url" class="toggle__content__input" placeholder="Image URL">
+              <textarea name="caption" rows="4" cols="40" class="toggle__content__input">Image Caption</textarea>
+              <div class="toggle__content__buttons">
+                <div class="toggle__content__buttons__btn"><h4>cancel</h4></div>
+                <div class="toggle__content__buttons__btn toggle__content__buttons__btn__green"><i class="fa fa-picture-o" aria-hidden="true"></i><h4>add image</h4></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <main class="app__main">
+    <div class="width-container">
+      <div class="width-container__smaller">
+
+      <div class="width-container__blocks">
+        <div class="block">
+          <div class="block__photo">
+            <img src="http://placecera.com/500/400" alt="" class="block__photo__content">
+          </div>
+          <div class="block__caption">
+            <p>This is a fine gif of Michael Cera.</p>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block__photo">
+            <img src="http://placecera.com/gif/500/450" alt="" class="block__photo__content">
+          </div>
+          <div class="block__caption">
+            <p>This is a fine gif of Michael Cera.</p>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block__photo">
+            <img src="http://placecera.com/gif/500/500" alt="" class="block__photo__content">
+          </div>
+          <div class="block__caption">
+            <p>This is a fine gif of Michael Cera.</p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+{% endblock %}
