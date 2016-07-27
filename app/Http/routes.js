@@ -21,6 +21,7 @@ const Photo = use('App/Model/Photo');
 Route.on('/').render('welcome')
 
 Route.get('/photos', function * (req, res){
+  // const { url, caption } = yield req.session.all();
   const { url, caption } = yield req.session.all();
   yield res.sendView('photos',{url,caption});
 });
@@ -31,5 +32,6 @@ Route.post('/photos', function * (req, res){
   const caption = req.input('caption');
   const photo = yield Photo.create({ url, caption });
   yield req.session.put({url, caption});
+
   res.redirect('/photos');
 })
