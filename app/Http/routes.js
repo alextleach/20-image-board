@@ -21,17 +21,16 @@ const Photo = use('App/Model/Photo');
 Route.on('/').render('welcome')
 
 Route.get('/photos', function * (req, res){
-  // const { url, caption } = yield req.session.all();
-  const { url, caption } = yield req.session.all();
-  yield res.sendView('photos',{url,caption});
+  const photos = yield Photo.all();
+  yield res.sendView('photos',{photos:photos.toJSON()});
 });
 
 Route.post('/photos', function * (req, res){
-  const Database = use('Database');
+  // const Database = use('Database');
   const url = req.input('url');
   const caption = req.input('caption');
-  const photo = yield Photo.create({ url, caption });
-  yield req.session.put({url, caption});
+  yield Photo.create({ url, caption });
+  // yield req.session.put({url, caption});
 
   res.redirect('/photos');
 })
