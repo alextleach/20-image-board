@@ -1,0 +1,56 @@
+{% extends "master" %}
+{% block content %}
+<div class="app">
+
+  <div class="top-nav">
+    <div class="app--nav">
+      <div class="width-container">
+        <div class="app--nav__content">
+          <i class="fa fa-plus-circle circle-button" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <form action="/photos" method="POST">
+      <div class="toggle">
+        <div class="width-container width-container__top">
+          <div class="toggle__content">
+                {{ csrfField }}
+                <input type="text" name="url" class="toggle__content__input" placeholder="Image URL">
+                <textarea name="caption" rows="4" cols="40" class="toggle__content__input" placeholder="Image Caption"></textarea>
+                <div class="toggle__content__buttons">
+                  <button type="clear" class="toggle__content__buttons__btn">
+                    <h4>cancel</h4>
+                  </button>
+                  <button type="submit" class="toggle__content__buttons__btn toggle__content__buttons__btn__green">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i><h4>add image</h4>
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+  </div>
+
+  <main class="app__main">
+    <div class="width-container">
+      <div class="width-container__smaller">
+
+      <div class="width-container__blocks">
+        {% for photo in photos %}
+        <div class="block">
+          <div class="block__photo">
+            <img src="{{photo.url}}" alt="" class="block__photo__content">
+          </div>
+          <div class="block__caption">
+            <p>{{photo.caption}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+{% endblock %}

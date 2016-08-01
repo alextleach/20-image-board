@@ -1,0 +1,144 @@
+// @import 'yoga';
+// @import 'normalize';
+
+$fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
+@import 'font-awesome';
+@import 'box-sizing';
+@import 'adonis';
+
+$gutter: 1rem;
+$maingray: #eee;
+$navblue: #3662a3;
+
+body {
+  margin: 0;
+  background: $maingray;
+}
+
+.app {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+  &--nav {
+    width: 100%;
+    background: $navblue;
+    background-image: linear-gradient(to bottom, lighten($navblue,4%), darken($navblue, 6%));
+    padding: $gutter;
+    font-size: 2rem;
+    color: rgba(#07224a,.9);
+    border-bottom: 0.1rem solid $maingray;
+    &__content {
+      width: 100%;
+    }
+  }
+}
+.circle-button{
+  transition: color 450ms ease-out 350ms, transform 250ms ease-in 200ms;
+}
+.circle-button:hover{
+  color: rgba(#fff,.9);
+  transform: rotate(360deg);
+  transition: color 200ms ease-out, transform 250ms linear 100ms;
+}
+
+.top-nav {
+  width: 100%;
+}
+
+.width-container {
+  max-width: 60rem;
+  margin: 0 auto;
+  &__blocks {
+    max-width: 43rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2rem $gutter;
+  }
+  &__smaller {
+    max-width: 55rem;
+    margin: 0 auto;
+    background: darken($maingray, 4%);
+    padding: 0 $gutter;
+    border: 0.1rem solid darken($maingray, 10%);
+    border-top: none;
+  }
+  &__top {
+    max-width: 55rem;
+    margin: 0 auto;
+  }
+}
+
+.toggle {
+  height: 0;
+  background: $navblue;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 300ms linear 70ms, opacity 300ms ease-out, background 200ms ease-out;
+
+  &__active {
+    background: #fff;
+    height: 35vh;
+    opacity: 1;
+    border-bottom: 0.1rem solid darken($maingray, 10%);
+    padding: 0 $gutter;
+    transition: height 500ms cubic-bezier(0.74, 0.57, 0.29, 1.2), opacity 200ms ease-in, background 500ms ease-in;
+
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: $gutter;
+    &__input {
+      margin: $gutter/2 0;
+      padding: $gutter;
+    }
+    &__buttons{
+      display: flex;
+      justify-content: flex-end;
+      &__btn{
+        background: #c4c4c4;
+        color: #fff;
+        text-transform: uppercase;
+        padding: $gutter/2 $gutter;
+        margin-left: $gutter;
+        border-radius: 0.3rem;
+        &:hover{
+          background: #dbdbdb;
+        }
+        &__green{
+          min-width: 15%;
+          background: #41a35a;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          transition: background 200ms linear 100ms;
+          &:hover{
+            background: #17cd45;
+            transition: background 200ms linear;
+          }
+        }
+      }
+    }
+  }
+}
+
+.block {
+  width: 100%;
+  background: #fff;
+  margin-bottom: $gutter*2;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(#afafaf,.76);
+
+  &__photo{
+    width: 100%;
+    &__content {
+      width: 100%;
+    }
+  }
+  &__caption {
+    padding: $gutter;
+  }
+}
